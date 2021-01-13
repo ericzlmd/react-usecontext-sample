@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import Home from './pages/';
 import About from './pages/about';
+import { UserProvider } from './UserContext';
 
 function App() {
   return (
@@ -19,8 +20,10 @@ function App() {
           </ul>
         </nav>
       </div>
-      <Route path="/" exact component={Home} />
-      <Route path="/about" component={About} />
+      <UserProvider>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+      </UserProvider>
     </Router>
   );
 }
